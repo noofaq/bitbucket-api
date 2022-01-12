@@ -95,13 +95,13 @@ class SshKeys extends Api
      *
      * @access public
      * @param  string           $account The name of an individual or team account.
-     * @param  int              $keyId   Key identifier.
+     * @param  mixed            $keyId   Key identifier.
      * @return ResponseInterface
      */
     public function delete($account, $keyId)
     {
         return $this->getClient()->setApiVersion('2.0')->delete(
-            sprintf('/users/%s/ssh-keys/%d', $account, $keyId)
+            sprintf('/users/%s/ssh-keys/%s', $account, $keyId)
         );
     }
 }
